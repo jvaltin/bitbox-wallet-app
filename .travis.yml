@@ -13,14 +13,16 @@ addons:
       - make
 
 install:
-- docker build -t bitbox-wallet .
-- docker run bitbox-wallet
+- docker build -t bitbox-wallet-dev .
+- docker start bitbox-wallet-dev
+- docker run --privileged -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app bitbox-wallet
+
 
 jobs:
   include:
     - stage: docker ci
-      script: docker run -it bitbox-wallet /bin/bash -c "./scripts/ci.sh"
+      script: docker exec -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci.sh'
     - stage: docker ci-fast
-      script: docker run -it bitbox-wallet /bin/bash -c "./scripts/ci-fast.sh"
+      script: docker exec -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci-fast.sh'
     - stage: build linux
-      script: docker run -it bitbox-wallet /bin/bash -c "make clean qt-linux"
+      script: docker exec -t bitbox-wallet-dev /bin/bash -c "cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make clean qt-linux"
