@@ -12,6 +12,10 @@ addons:
       - docker-ce
       - make
 
+before_install:
+- make dockerinit
+- docker ps -a
+
 jobs:
   include:
     - stage: docker init
