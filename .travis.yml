@@ -12,7 +12,13 @@ addons:
       - docker-ce
       - make
 
-before_install:
-  - sudo make dockerinit
-
-script: make dockerbuild-linux
+jobs:
+  include:
+    - stage: docker init
+      script: make dockerinit
+    - stage: build linux
+      script: make dockerbuild-linux
+    - stage: docker ci
+      script: make docker-ci
+    - stage: docker ci-fast
+      script: make docker-ci-fast
