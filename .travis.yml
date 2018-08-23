@@ -20,8 +20,8 @@ before_install:
 jobs:
   include:
     - stage: build linux
-      script: docker-run -it bitbox-wallet /bin/bash -c "make dockerbuild-linux"
+      script: docker run -it bitbox-wallet /bin/bash -c "make dockerbuild-linux"
     - stage: docker ci
-      script: docker-run -it bitbox-wallet /bin/bash -c "make docker-ci"
+      script: docker run -it bitbox-wallet /bin/bash -c "make docker-ci"
     - stage: docker ci-fast
-      script: docker-run -it bitbox-wallet /bin/bash -c "make docker-ci-fast"
+      script: docker run -it bitbox-wallet /bin/bash -c "make docker-ci-fast"
