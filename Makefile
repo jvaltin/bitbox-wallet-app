@@ -66,6 +66,6 @@ dockerinit:
 dockerdev:
 	./scripts/dockerdev.sh
 dockerbuild-linux:
-	./scripts/docker_exec.sh init qt-linux clean
-	./scripts/docker_exec.sh ci
-	./scripts/docker_exec.sh ci-quick
+	./scripts/docker_ci_exec.sh init qt-linux clean
+	./scripts/docker_ci_exec.sh ci
+	./scripts/docker_ci_exec.sh ci-quick
