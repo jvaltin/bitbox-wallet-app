@@ -19,8 +19,8 @@ install:
 jobs:
   include:
     - stage: docker ci
-      script: docker run -it bitbox-wallet /bin/bash -c "make docker-ci"
+      script: docker run -it bitbox-wallet /bin/bash -c "./scripts/ci.sh"
     - stage: docker ci-fast
-      script: docker run -it bitbox-wallet /bin/bash -c "make docker-ci-fast"
+      script: docker run -it bitbox-wallet /bin/bash -c "./scripts/ci-fast.sh"
     - stage: build linux
       script: docker run -it bitbox-wallet /bin/bash -c "make clean qt-linux"
