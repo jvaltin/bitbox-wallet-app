@@ -12,11 +12,8 @@ addons:
       - docker-ce
       - make
 
-before_install:
+install:
 - docker build -t bitbox-wallet .
-- docker run bitbox-wallet /bin/bash -c "ls -al /opt/"
-- docker run bitbox-wallet /bin/bash -c "find /|grep bitbox-wallet-app"
-- docker ps -a
 
 jobs:
   include:
