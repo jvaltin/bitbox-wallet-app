@@ -1,0 +1,18 @@
+sudo: required
+
+language: bash
+
+services:
+  - docker
+
+addons:
+  apt:
+    update: true
+    packages:
+      - docker-ce
+      - make
+
+before_install:
+  - sudo make dockerinit
+
+script: make dockerbuild-linux
