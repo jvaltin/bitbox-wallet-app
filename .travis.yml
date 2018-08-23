@@ -13,16 +13,15 @@ addons:
       - make
 
 before_install:
-- make dockerinit
+- docker build -t bitbox-wallet .
+- docker run bitbox-wallet /bin/bash -c "ls -al /opt/"
 - docker ps -a
 
 jobs:
   include:
-    - stage: docker init
-      script: make dockerinit
     - stage: build linux
-      script: make dockerbuild-linux
+      script: docker-run -it bitbox-wallet /bin/bash -c "make dockerbuild-linux"
     - stage: docker ci
-      script: make docker-ci
+      script: docker-run -it bitbox-wallet /bin/bash -c "make docker-ci"
     - stage: docker ci-fast
-      script: make docker-ci-fast
+      script: docker-run -it bitbox-wallet /bin/bash -c "make docker-ci-fast"
