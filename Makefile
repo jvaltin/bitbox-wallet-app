@@ -66,8 +66,8 @@ dockerinit:
 dockerdev:
 	./scripts/dockerdev.sh
 dockerbuild-linux:
-	docker run -t bitbox-wallet make init qt-linux clean
-docker-ci:
-	docker run -t bitbox-wallet make ci
-docker-ci-fast:
-	docker run -t bitbox-wallet make ci-fast
+	make init qt-linux clean
+docker-ci: init
+	make init ci
+docker-ci-fast: init
+	make init ci-fast

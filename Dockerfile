@@ -14,10 +14,8 @@
 
 FROM shiftcrypto/qt5
 
-#ADD scripts/docker_install.sh /tmp/
-#RUN /tmp/docker_install.sh
-ADD . /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
-RUN /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/scripts/docker_install.sh
+ADD scripts/docker_install.sh /tmp/
+RUN /tmp/docker_install.sh
 
 ENV GOPATH /opt/go
 ENV GOROOT /opt/go_dist/go
@@ -37,7 +35,6 @@ RUN apt-get -y install --no-install-recommends fuse && \
 RUN apt-get -y install --no-install-recommends ruby ruby-dev build-essential rpm && gem install --no-ri --no-rdoc fpm
 
 ENV PATH /opt/qt5/bin:$PATH
-
 
 ENV GOPATH /opt/go
 ENV GOROOT /opt/go_dist/go
