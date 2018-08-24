@@ -9,19 +9,8 @@ addons:
       - make
 
 script:
-- ls -al
 - docker build --tag bitbox-wallet-dev .
-- docker images
-- docker ps -a
-- docker image ls
-- docker run bitbox-wallet-dev:latest    
-- docker ps -a
 - mv Dockerfile Dockerfile.dev
 - mv Dockerfile.travis Dockerfile
 - docker build --tag bitbox-wallet-ci .
-- docker image ls
-- docker ps -a
-- ls -al 
-- ls -al /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
-- docker run --name bitbox-wallet-ci -t bitbox-wallet-dev:latest /bin/bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make dockerbuild-linux'
-- docker ps -a
+- docker run --name bitbox-wallet-ci -t bitbox-wallet-ci:latest /bin/bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make dockerbuild-linux'
