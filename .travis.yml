@@ -17,8 +17,8 @@ install:
 jobs:
   include:
     - stage: docker ci
-      script: docker exec -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci.sh'
+      script: docker run -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci.sh'
     - stage: docker ci-fast
-      script: docker exec -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci-fast.sh'
+      script: docker run -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci-fast.sh'
     - stage: build linux
-      script: docker exec -t bitbox-wallet-dev /bin/bash -c "cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make clean qt-linux"
+      script: docker run -t bitbox-wallet-dev /bin/bash -c "cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make clean qt-linux"
