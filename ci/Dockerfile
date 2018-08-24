@@ -18,7 +18,8 @@ ENV GOROOT /opt/go_dist/go
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 ENV PATH /opt/qt5/bin:$PATH
 
-ADD ../. /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
+RUN mkdir -p /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
+ADD . /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
 
 RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ init
 RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ qt-linux
