@@ -14,9 +14,9 @@ addons:
 
 install:
 - docker build -t bitbox-wallet-dev .
+- docker start bitbox-wallet-dev:latest
 - docker ps -a
-- docker start bitbox-wallet-dev
-- docker run --privileged -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app bitbox-wallet-dev
+- docker run --privileged -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app bitbox-wallet-dev:latest
 
 
 jobs:
