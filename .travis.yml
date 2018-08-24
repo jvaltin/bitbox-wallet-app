@@ -10,7 +10,7 @@ addons:
 
 script:
 - docker build --tag bitbox-wallet-dev .
-- docker start bitbox-wallet-dev 
+- docker images
 - docker ps -a
 - docker run -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci.sh'
 - docker run -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci-fast.sh'
