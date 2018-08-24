@@ -10,7 +10,7 @@ addons:
 
 install:
 - docker build --tag bitbox-wallet-dev .
-- docker run  -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app bitbox-wallet-dev 
+- docker start -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app bitbox-wallet-dev 
 - docker ps -a
 
 
