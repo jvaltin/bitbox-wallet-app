@@ -9,6 +9,7 @@ addons:
       - make
 
 script:
+- ls -al
 - docker build --tag bitbox-wallet-dev .
 - docker images
 - docker ps -a
