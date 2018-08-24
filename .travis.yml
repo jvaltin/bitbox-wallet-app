@@ -18,7 +18,7 @@ script:
 - docker ps -a
 - mv Dockerfile Dockerfile.dev
 - mv Dockerfile.travis Dockerfile
-- docker build --tag bitbox-wallet-ci
+- docker build --tag bitbox-wallet-ci .
 - docker image ls
 - docker ps -a
 - ls -al 
