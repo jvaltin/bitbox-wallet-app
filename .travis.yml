@@ -10,15 +10,15 @@ addons:
 
 install:
 - docker build --tag bitbox-wallet-dev .
-- docker start -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app bitbox-wallet-dev 
+- docker start bitbox-wallet-dev 
 - docker ps -a
 
 
 jobs:
   include:
     - stage: docker ci
-      script: docker run -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci.sh'
+      script: docker run -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci.sh'
     - stage: docker ci-fast
-      script: docker run -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci-fast.sh'
+      script: docker run -v "`pwd`":/opt/go/src/github.com/digitalbitbox/bitbox-wallet-app -t bitbox-wallet-dev bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci-fast.sh'
     - stage: build linux
       script: docker run -t bitbox-wallet-dev /bin/bash -c "cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make clean qt-linux"
