@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM bitbox-wallet-dev
+FROM bitbox-wallet
 ENV GOPATH /opt/go
 ENV GOROOT /opt/go_dist/go
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
