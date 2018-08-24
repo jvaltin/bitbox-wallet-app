@@ -16,7 +16,7 @@ script:
 - docker image ls
 - docker run bitbox-wallet-dev:latest    
 - docker ps -a
-- cd ci && docker build --tag bitbox-wallet-ci .
+- cd ci && docker build --tag bitbox-wallet-ci . && cd ..
 - ls -al 
 - ls -al /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
 - docker run --name bitbox-wallet-ci -t bitbox-wallet-dev:latest /bin/bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make dockerbuild-linux'
