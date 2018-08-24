@@ -15,6 +15,5 @@ script:
 - docker image ls
 - docker run bitbox-wallet-dev:latest    
 - docker ps -a
-- docker run -t bitbox-wallet-dev:latest /bin/bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci.sh'
-- docker run -t bitbox-wallet-dev:latest /bin/bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && ./scripts/ci-fast.sh'
-- docker run -t bitbox-wallet-dev:latest /bin/bash -c "cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make clean qt-linux"
+- docker run -t bitbox-wallet-dev:latest /bin/bash -c 'cd /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app && make dockerbuild-linux'
+- docker ps -a
