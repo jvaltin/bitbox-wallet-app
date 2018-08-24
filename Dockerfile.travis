@@ -20,11 +20,7 @@ ENV PATH /opt/qt5/bin:$PATH
 
 RUN mkdir -p /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
 ADD . /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
-RUN pwd
-RUN find /|grep bitbox-wallet
-RUN ls -al /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/
 
-RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ init
 RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ qt-linux
-RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ ci
-RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ ci-fast
+#RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ ci
+#RUN make -C /opt/go/src/github.com/digitalbitbox/bitbox-wallet-app/ ci-fast
